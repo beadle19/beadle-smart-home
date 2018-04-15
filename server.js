@@ -11,7 +11,7 @@ app.get('/api/hello', (req, res)=> {
 })
 
 app.get('/api/python', (req,res)=> {
-    PythonShell.run('./python/openApplication.py', function (err) {
+    PythonShell.run('./python/switchon.py', function (err) {
         if (err) throw err
         console.log('finished')
     });
