@@ -4,7 +4,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    response: ''
+    response: '',
+    pythonMessage: ''
   }
 
   componentDidMount() {
@@ -22,6 +23,16 @@ class App extends Component {
     return body;
   };
 
+  callPythonScript = () => {
+    fetch('/api/python')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({pythonMessage: result.message})
+        }
+      )
+  }
+
   render() {
     return (
       <div className="App">
@@ -32,6 +43,8 @@ class App extends Component {
         <p className="App-intro">
           {this.state.response}
         </p>
+        <input type="button" value="test" onClick={this.callPythonScript}/>
+        <h1>{ this.state.pythonMessage}</h1>
       </div>
     );
   }
