@@ -10,7 +10,15 @@ app.get('/api/hello', (req, res)=> {
     res.send({express: 'Hello From Express'})
 })
 
-app.get('/api/python', (req,res)=> {
+app.get('/api/ledSwitch1On', (req,res)=> {
+    PythonShell.run('./python/switchon.py', function (err) {
+        if (err) throw err
+        console.log('finished')
+    });
+    res.send({message: 'Ran script'})
+});
+
+app.get('/api/ledSwitch1Off', (req,res)=> {
     PythonShell.run('./python/switchon.py', function (err) {
         if (err) throw err
         console.log('finished')
