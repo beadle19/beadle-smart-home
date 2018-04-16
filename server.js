@@ -10,8 +10,9 @@ app.get('/api/hello', (req, res)=> {
     res.send({express: 'Hello From Express'})
 })
 
+// LED LIGHT STRIPS 1
 app.get('/api/ledSwitch1On', (req,res)=> {
-    PythonShell.run('./python/switchon.py', function (err) {
+    PythonShell.run('./python/ledSwitch1On.py', function (err) {
         if (err) throw err
         console.log('finished')
     });
@@ -19,7 +20,7 @@ app.get('/api/ledSwitch1On', (req,res)=> {
 });
 
 app.get('/api/ledSwitch1Off', (req,res)=> {
-    PythonShell.run('./python/switchon.py', function (err) {
+    PythonShell.run('./python/ledSwitch1Off.py', function (err) {
         if (err) throw err
         console.log('finished')
     });
