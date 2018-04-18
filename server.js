@@ -48,7 +48,7 @@ app.get('/api/ledSwitch2Off', (req,res) => {
 app.get('/api/ledSwitchAllOn', (req,res) => {
     PythonShell.run('./python/ledSwitchAllOn.py', function (err) {
         if (err) throw err
-        console.log('switch 2 on')
+        console.log('All accent lighting on')
     })
     res.send({message: 'Turned on all LEDs'})
 })
@@ -56,7 +56,7 @@ app.get('/api/ledSwitchAllOn', (req,res) => {
 app.get('/api/ledSwitchAllOff', (req,res) => {
     PythonShell.run('./python/ledSwitchAllOff.py', function (err) {
         if (err) throw err
-        console.log('switch 2 off')
+        console.log('All accent lighting off')
     })
     res.send({message: 'Turned off all LEDs'})
 })
