@@ -29,7 +29,7 @@ app.get('/api/ledSwitch1Off', (req,res) => {
 
 // LED LIGHT STRIPS 1
 app.get('/api/ledSwitch2On', (req,res) => {
-    PythonShell.run('./pythonledSwitch2On.py', function (err) {
+    PythonShell.run('./python/ledSwitch2On.py', function (err) {
         if (err) throw err
         console.log('switch 2 on')
     })
@@ -37,7 +37,7 @@ app.get('/api/ledSwitch2On', (req,res) => {
 })
 
 app.get('/api/ledSwitch2Off', (req,res) => {
-    PythonShell.run('./pythonledSwitch2Off.py', function (err) {
+    PythonShell.run('./python/ledSwitch2Off.py', function (err) {
         if (err) throw err
         console.log('switch 2 off')
     })
@@ -46,7 +46,7 @@ app.get('/api/ledSwitch2Off', (req,res) => {
 
 // LED LIGHT STRIPS 1
 app.get('/api/ledSwitchAllOn', (req,res) => {
-    PythonShell.run('./pythonledSwitchAllOn.py', function (err) {
+    PythonShell.run('./python/ledSwitchAllOn.py', function (err) {
         if (err) throw err
         console.log('switch 2 on')
     })
@@ -54,7 +54,7 @@ app.get('/api/ledSwitchAllOn', (req,res) => {
 })
 
 app.get('/api/ledSwitchAllOff', (req,res) => {
-    PythonShell.run('./pythonledSwitchAllOff.py', function (err) {
+    PythonShell.run('./python/ledSwitchAllOff.py', function (err) {
         if (err) throw err
         console.log('switch 2 off')
     })
