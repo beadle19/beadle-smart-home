@@ -1,0 +1,14 @@
+.categories-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: inline-block;
+}
+
+.category {
+    display: block;
+    width: 95%; 
+    height: calc(90% - 50px);
+    margin: auto;
+    margin-top: 25px;
+}

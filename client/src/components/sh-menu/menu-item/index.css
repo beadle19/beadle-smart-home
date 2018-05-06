@@ -1,0 +1,53 @@
+.menu-item { 
+    height: 50px; 
+    width: 200px;
+    padding-left: 3px;
+    border-left: 0px;
+    transition: 0s;
+    background-size: 0%;
+}
+
+.menu-item.active {
+    border-left: 3px solid #009cff;
+    padding-left: 0px;
+    background: -moz-linear-gradient(left, rgba(30,87,153,0.2) 0%, rgba(255,255,255,0.02) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(30,87,153,0.2) 0%,rgba(255,255,255,0.02) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(30,87,153,0.2) 0%,rgba(255,255,255,0.02) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#331e5799', endColorstr='#05ffffff',GradientType=1 );
+    background-size: 100%;
+    transition: 0.3s;
+}
+
+.menu-item span {
+    display: inline-block;
+    font-size: 1rem;
+    padding-left: 15px;
+    padding-top: 4px;
+}
+
+.menu-item span p {
+    display: inline-block;
+    padding-left: 25px;
+    font-weight: 100;
+    font-size: 0.8em;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.menu-item a {
+    display: block;
+    font-size: .9rem;
+    text-decoration: none;
+    color: #FFF;
+    height: 50px;
+}
+
+.menu-item-icon:before {
+    font-size: 25px !important;
+    vertical-align: middle;
+}
+
+.menu-item.expanded span p {
+    opacity: 1;
+    transition: 0.3s;
+}

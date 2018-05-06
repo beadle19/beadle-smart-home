@@ -16,7 +16,7 @@ app.get('/api/ledSwitch1On', (req,res) => {
         if (err) throw err
         console.log('switch 1 on')
     })
-    res.send({message: 'Turned on LED 1'})
+    res.send({message: 'on'})
 })
 
 app.get('/api/ledSwitch1Off', (req,res) => {
@@ -24,16 +24,16 @@ app.get('/api/ledSwitch1Off', (req,res) => {
         if (err) throw err
         console.log('switch 1 off')
     })
-    res.send({message: 'Turned off LED 1'})
+    res.send({message: 'off'})
 })
 
-// LED LIGHT STRIPS 1
+// LED LIGHT STRIPS 2
 app.get('/api/ledSwitch2On', (req,res) => {
     PythonShell.run('./python/ledSwitch2On.py', function (err) {
         if (err) throw err
         console.log('switch 2 on')
     })
-    res.send({message: 'Turned off on LED 2'})
+    res.send({message: 'on'})
 })
 
 app.get('/api/ledSwitch2Off', (req,res) => {
@@ -41,16 +41,16 @@ app.get('/api/ledSwitch2Off', (req,res) => {
         if (err) throw err
         console.log('switch 2 off')
     })
-    res.send({message: 'Turned off on LED 2'})
+    res.send({message: 'off'})
 })
 
-// LED LIGHT STRIPS 1
+// LED LIGHT STRIPS All
 app.get('/api/ledSwitchAllOn', (req,res) => {
     PythonShell.run('./python/ledSwitchAllOn.py', function (err) {
         if (err) throw err
         console.log('All accent lighting on')
     })
-    res.send({message: 'Turned on all LEDs'})
+    res.send({message: 'on'})
 })
 
 app.get('/api/ledSwitchAllOff', (req,res) => {
@@ -58,7 +58,7 @@ app.get('/api/ledSwitchAllOff', (req,res) => {
         if (err) throw err
         console.log('All accent lighting off')
     })
-    res.send({message: 'Turned off all LEDs'})
+    res.send({message: 'off'})
 })
 
 app.listen(port, () => console.log(`listening on port ${port}`))
