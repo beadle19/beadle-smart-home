@@ -16,20 +16,24 @@ class LightCategory extends React.PureComponent {
     }
 
     /* Make request to service */ 
-    makeRequest = (params) => {
+    makeButtonRequest = (params) => {
         let reqParam = params.state ? 'Off' : 'On'
+
         return fetch(params.reqType + params.req + reqParam)
-            .then(res => res)
+            .then(res => res.json())
             .then(
                 (result) => {
                     debugger
-                    return result
+                    var buttonValue = result.message === 'on' ? true : false
+                    return buttonValue 
                 }
             )
     }
 
+    /* Create category content */ 
     createContent = (contentInput) => {
         let content = []
+
         contentInput.forEach((option) => {
             let element
             if (option.type === 'toggleButton') {
@@ -50,7 +54,7 @@ class LightCategory extends React.PureComponent {
                     reqType: '/api/', 
                     req: 'ledSwitchAll'
                 },
-                requestHandler: this.makeRequest,
+                requestHandler: this.makeButtonRequest,
                 buttonText : 'All Leds',
                 type: 'toggleButton'
             },
@@ -60,7 +64,7 @@ class LightCategory extends React.PureComponent {
                     reqType: '/api/', 
                     req: 'ledSwitch1'
                 },
-                requestHandler: this.makeRequest,
+                requestHandler: this.makeButtonRequest,
                 buttonText : 'Desk LED',
                 type: 'toggleButton'
             },
@@ -70,7 +74,7 @@ class LightCategory extends React.PureComponent {
                     reqType: '/api/', 
                     req: 'ledSwitch2'
                 },
-                requestHandler: this.makeRequest,
+                requestHandler: this.makeButtonRequest,
                 buttonText : 'Theatre LED',
                 type: 'toggleButton'
             }

@@ -40,10 +40,9 @@ class App extends Component {
   // Toggles menu expanded
   expandMenu = () => {
     console.log('expanded')
-    this.setState( (state) => {
+    this.setState( (state) => { 
       let menuExpanded
       menuExpanded = state.menuExpanded ? false : true
-      
       return {menuExpanded : menuExpanded}
     })
   }

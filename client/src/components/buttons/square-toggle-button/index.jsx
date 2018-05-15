@@ -7,22 +7,23 @@ class SquareToggleBtn extends React.PureComponent {
     }
 
     onClickHandler = () => {
-        debugger
         let requestParams = {
             ...this.props.onClickParams, 
             state: this.state.active } 
 
         let buttonState = this.props.onClick(requestParams)
         
-        this.setState((state) => {
-            let buttonActive = buttonState ? 'on' : ''
-            return {...state, isOn : buttonActive}
+        buttonState.then ((buttonValue) => {
+            this.setState((state) => {
+                let buttonActive = buttonValue ? 'on' : ''
+                return {...state, active: buttonValue}
+            })
         })
     }
 
     render() {
         let isOn = this.state.active ? 'on' : ''
-        let squaryButtonClassName = 'square-toggle-btn ' + this.state.isOn
+        let squaryButtonClassName = 'square-toggle-btn ' + isOn
         let iconClassName = 'st-btn-icon ' + this.props.iconClass
 
         return (

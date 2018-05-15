@@ -1,7 +1,9 @@
 // Setup exrpess requirements
 const express = require('express')
-const app = express(); 
-const port = process.env.PORT || 5000;
+const app = express()
+const port = process.env.PORT || 5000
+const server = require('http').createServer(app)
+const io = require('socket.io')(server)
 
 // Setup running python
 let PythonShell = require('python-shell')
@@ -29,6 +31,7 @@ app.get('/api/ledSwitch1Off', (req,res) => {
 
 // LED LIGHT STRIPS 2
 app.get('/api/ledSwitch2On', (req,res) => {
+    console.log('2on')
     PythonShell.run('./python/ledSwitch2On.py', function (err) {
         if (err) throw err
         console.log('switch 2 on')
@@ -37,6 +40,7 @@ app.get('/api/ledSwitch2On', (req,res) => {
 })
 
 app.get('/api/ledSwitch2Off', (req,res) => {
+     console.log('2off')
     PythonShell.run('./python/ledSwitch2Off.py', function (err) {
         if (err) throw err
         console.log('switch 2 off')
@@ -61,4 +65,4 @@ app.get('/api/ledSwitchAllOff', (req,res) => {
     res.send({message: 'off'})
 })
 
-app.listen(port, () => console.log(`listening on port ${port}`))
+server.listen(port, () => console.log(`listening on port ${port}`))
